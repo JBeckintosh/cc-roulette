@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "ng build --output-path docs --base-href /cc-roulette/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:cc-roulette": "node dist/cc-roulette/server/server.mjs"
