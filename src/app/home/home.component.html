@@ -1,0 +1,22 @@
+<form [formGroup]="playerForm" (submit)="addPlayer()">
+    <div>
+        <mat-form-field floatLabel="always" color="primary" appearance="outline">
+            <mat-label>Player Name</mat-label>
+            <mat-icon aria-hidden="false" aria-label="Player icon" fontIcon="person" color="primary" matPrefix />
+            <input id="app-home-player-input" type="text" formControlName="player" matInput />
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field floatLabel="always" color="primary" appearance="outline">
+            <mat-label>Meal Cost</mat-label>
+            <mat-icon aria-hidden="false" aria-label="Player icon" fontIcon="currency_pound" color="primary" matPrefix />
+            <input id="app-home-cost-input" type="number" step="0.01" formControlName="cost" matInput />
+        </mat-form-field>
+    </div>
+    <div>
+        <button id="app-home-submit" type="submit" color="primary" mat-fab extended>
+            <mat-icon aria-hidden="false" aria-label="Add icon" fontIcon="add" color="basic" />
+            Add Player
+        </button>
+    </div>
+</form>
