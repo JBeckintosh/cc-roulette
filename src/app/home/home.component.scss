@@ -1,0 +1,7 @@
+@use '../../theme-variables.scss' as theme;
+
+form { 
+    padding: 40px;
+    border: 2px solid theme.$dull-primary;
+    border-radius: 10%;
+}

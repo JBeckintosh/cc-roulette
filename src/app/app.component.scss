@@ -1,0 +1,19 @@
+@use '../theme-variables' as theme;
+
+h4 {
+    margin-left: 15%;
+    color: theme.$dull-black;
+}
+
+h4:before, h4:after {
+    content: "";
+    display: inline-block;
+    width: 50%;
+    margin: 0 .5em 0 -55%;
+    vertical-align: middle;
+    border-bottom: 1px solid;
+}
+
+h4:after {
+margin: 0 -55% 0 .5em;
+}

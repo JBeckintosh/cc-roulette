@@ -1,6 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'theme-variables' as theme; 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* You can add global styles to this file, and also import other style files */
+html, body { 
+    height: 100%;
+}
+
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: theme.$primary;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    column-gap: 10px;
+}
+
+.mat-headline-3, .mat-typography .mat-headline-3 {
+    margin: 20px 0 0;
+}
