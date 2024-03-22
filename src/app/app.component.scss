@@ -1,7 +1,7 @@
 @use '../theme-variables' as theme;
 
 h4 {
-    margin-left: 15%;
+    margin-left: 5%;
     color: theme.$dull-black;
 }
 
@@ -16,4 +16,8 @@ h4:before, h4:after {
 
 h4:after {
 margin: 0 -55% 0 .5em;
+}
+
+.mat-headline-4, .mat-typography .mat-headline-4 {
+    margin: 20px 0 0;
 }
