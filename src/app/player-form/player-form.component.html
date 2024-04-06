@@ -1,0 +1,24 @@
+<form id="app-player-form" [formGroup]="playerForm" #formDirective="ngForm" (submit)="addPlayer(formDirective)">
+    <div id="app-player-form-player-name-field">
+        <mat-form-field floatLabel="always" color="primary" appearance="outline">
+            <mat-label id="app-player-form-player-name-label">Player Name</mat-label>
+            <mat-icon aria-hidden="false" aria-label="Player icon" fontIcon="person" color="primary" matPrefix />
+            <input id="app-player-form-player-name-input" type="text" formControlName="playerName" matInput />
+            <mat-error>{{playerNameFormControlErrors}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div id="app-player-form-meal-cost-field">
+        <mat-form-field floatLabel="always" color="primary" appearance="outline">
+            <mat-label id="app-player-form-meal-cost-label">Meal Cost</mat-label>
+            <mat-icon aria-hidden="false" aria-label="Player icon" fontIcon="currency_pound" color="primary" matPrefix />
+            <input id="app-player-form-meal-cost-input" type="number" min="0" step="0.01" formControlName="mealCost" matInput appTwoDecimalPlacesOnly />
+            <mat-error>{{mealCostFormControlErrors}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="container">
+        <button id="app-player-form-submit" type="submit" color="primary" mat-fab extended [disabled]="!playerForm.valid">
+            <mat-icon aria-hidden="false" aria-label="Add icon" fontIcon="add" color="basic" />
+            Add Player
+        </button>
+    </div>
+</form>
