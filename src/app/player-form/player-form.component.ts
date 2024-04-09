@@ -29,13 +29,6 @@ export class PlayerFormComponent {
   }
 
   /**
-   * Adds a player
-   */
-  public addPlayer = (formDirective: FormGroupDirective): void => {
-    formDirective.resetForm();
-  }
-
-  /**
    * Evaluates for any player name form control errors
    */
   public get playerNameFormControlErrors() {
@@ -62,6 +55,13 @@ export class PlayerFormComponent {
     }
 
     return;
+  }
+
+  /**
+   * Adds a player
+   */
+  public addPlayer = (formDirective: FormGroupDirective): void => {
+    formDirective.resetForm();
   }
 
   /**
