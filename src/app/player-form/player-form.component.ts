@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { formControlNames, validators, validatorErrorTypes } from './player-form.enum';
+import { formControlNames, validators, validatorErrorTypes } from './player-form.component.enum';
 import { TwoDecimalPlacesOnlyDirective } from '../../directives/two-decimal-places-only.directive';
 
 @Component({

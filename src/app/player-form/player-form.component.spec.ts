@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { ComponentFixtureAutoDetect } from '@angular/core/testing';
-import { formControlNames, validators, validatorErrorTypes } from './player-form.enum';
+import { formControlNames, validators, validatorErrorTypes } from './player-form.component.enum';
 import { AbstractControl } from '@angular/forms';
 
 describe('PlayerForm', () => {
