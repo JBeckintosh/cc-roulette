@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { validators } from './player-form.enum';
+import { formControlNames, validators, validatorErrorTypes } from './player-form.enum';
 import { TwoDecimalPlacesOnlyDirective } from '../../directives/two-decimal-places-only.directive';
 
 @Component({
@@ -19,7 +19,7 @@ export class PlayerFormComponent {
   /**
    * Player form to capture player information
    */
-  protected playerForm: FormGroup;
+  public playerForm: FormGroup;
 
   /**
    * Contructs
@@ -31,17 +31,17 @@ export class PlayerFormComponent {
   /**
    * Adds a player
    */
-  protected addPlayer = (formDirective: FormGroupDirective): void => {
+  public addPlayer = (formDirective: FormGroupDirective): void => {
     formDirective.resetForm();
   }
 
   /**
    * Evaluates for any player name form control errors
    */
-  protected get playerNameFormControlErrors() {
-    const playerNameFormControl = this.playerForm.controls['playerName'];
+  public get playerNameFormControlErrors() {
+    const playerNameFormControl = this.playerForm.controls[formControlNames.PLAYER_NAME];
 
-    if (playerNameFormControl.hasError('required')) {
+    if (playerNameFormControl.hasError(validatorErrorTypes.REQUIRED)) {
       return validators.PLAYER_NAME_REQUIRED;
     }
 
@@ -51,13 +51,13 @@ export class PlayerFormComponent {
   /**
    * Evaluates for any meal cost form control errors
    */
-  protected get mealCostFormControlErrors() {
-    const mealCostFormControl = this.playerForm.controls['mealCost'];
+  public get mealCostFormControlErrors() {
+    const mealCostFormControl = this.playerForm.controls[formControlNames.MEAL_COST];
 
-    if (mealCostFormControl.hasError('required')) {
+    if (mealCostFormControl.hasError(validatorErrorTypes.REQUIRED)) {
       return validators.MEAL_COST_REQURIED;
     }
-    if (mealCostFormControl.hasError('min')) {
+    if (mealCostFormControl.hasError(validatorErrorTypes.MINIMUM)) {
       return validators.MEAL_COST_MIN_VALUE;
     }
 
