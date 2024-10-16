@@ -7,6 +7,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { formControlNames, validators, validatorErrorTypes } from './player-form.component.enum';
 import { TwoDecimalPlacesOnlyDirective } from '../../directives/two-decimal-places-only.directive';
+import { PlayersState } from '../../models/players-state';
+import { addPlayer } from '../../stores/player-store/player.actions';
+import { Store } from '@ngrx/store';
+import { playerSelector } from '../../stores/player-store/player.reducer';
 
 @Component({
   selector: 'app-player-form',
@@ -21,10 +25,12 @@ export class PlayerFormComponent {
    */
   public playerForm: FormGroup;
 
+  public players$ = this._playerStore.select(playerSelector);
+
   /**
    * Contructs
    */
-  constructor() {
+  constructor(private _playerStore: Store<PlayersState>) {
     this.playerForm = this._initializeNewPlayerForm();
   }
 
@@ -61,6 +67,14 @@ export class PlayerFormComponent {
    * Adds a player
    */
   public addPlayer = (formDirective: FormGroupDirective): void => {
+    // At this point, I want to add the play to a store and have that value saved persistently
+    console.log(this.playerForm);
+
+    this._playerStore.dispatch(addPlayer({
+      name: this.playerForm.controls[formControlNames.PLAYER_NAME].value,
+      mealCost: this.playerForm.controls[formControlNames.MEAL_COST].value
+    }));
+
     formDirective.resetForm();
   }
 
