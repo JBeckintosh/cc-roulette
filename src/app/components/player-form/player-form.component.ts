@@ -10,7 +10,6 @@ import { TwoDecimalPlacesOnlyDirective } from '../../directives/two-decimal-plac
 import { PlayersState } from '../../models/players-state';
 import { addPlayer } from '../../stores/player-store/player.actions';
 import { Store } from '@ngrx/store';
-import { playerSelector } from '../../stores/player-store/player.reducer';
 
 @Component({
   selector: 'app-player-form',
@@ -25,7 +24,7 @@ export class PlayerFormComponent {
    */
   public playerForm: FormGroup;
 
-  public players$ = this._playerStore.select(playerSelector);
+  // public players$ = this._playerStore.select(playerSelector);
 
   /**
    * Contructs
