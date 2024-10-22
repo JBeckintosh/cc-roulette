@@ -24,8 +24,6 @@ export class PlayerFormComponent {
    */
   public playerForm: FormGroup;
 
-  // public players$ = this._playerStore.select(playerSelector);
-
   /**
    * Contructs
    */
@@ -36,7 +34,7 @@ export class PlayerFormComponent {
   /**
    * Evaluates for any player name form control errors
    */
-  public get playerNameFormControlErrors() {
+  public get playerNameFormControlErrors(): String | undefined {
     const playerNameFormControl = this.playerForm.controls[formControlNames.PLAYER_NAME];
 
     if (playerNameFormControl.hasError(validatorErrorTypes.REQUIRED)) {
@@ -49,7 +47,7 @@ export class PlayerFormComponent {
   /**
    * Evaluates for any meal cost form control errors
    */
-  public get mealCostFormControlErrors() {
+  public get mealCostFormControlErrors(): String | undefined {
     const mealCostFormControl = this.playerForm.controls[formControlNames.MEAL_COST];
 
     if (mealCostFormControl.hasError(validatorErrorTypes.REQUIRED)) {
@@ -66,9 +64,7 @@ export class PlayerFormComponent {
    * Adds a player
    */
   public addPlayer = (formDirective: FormGroupDirective): void => {
-    // At this point, I want to add the play to a store and have that value saved persistently
-    console.log(this.playerForm);
-
+    // Add a player
     this._playerStore.dispatch(addPlayer({
       name: this.playerForm.controls[formControlNames.PLAYER_NAME].value,
       mealCost: this.playerForm.controls[formControlNames.MEAL_COST].value
@@ -79,7 +75,6 @@ export class PlayerFormComponent {
 
   /**
    * Creates a new player form 
-   * @returns FormGroup
    */
   private _initializeNewPlayerForm = (): FormGroup => {
     return new FormGroup({
