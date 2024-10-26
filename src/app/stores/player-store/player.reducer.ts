@@ -8,6 +8,6 @@ export const playerReducer = createReducer(
     initialState,
     on(addPlayer, (playersState, { player }) => [...playersState, player]),
     on(removePlayer, (playersState, { player }) => {
-        return playersState.filter(x => x.name != player.name && x.mealCost != player.mealCost);
+        return playersState.filter(x => x.id != player.id);
     })
 )

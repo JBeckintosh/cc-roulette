@@ -64,8 +64,11 @@ export class PlayerFormComponent {
    * Adds a player
    */
   public addPlayer = (formDirective: FormGroupDirective): void => {
+    console.log(new Date().getTime());
+
     // Add a player
     this._playerStore.dispatch(addPlayer({
+      id: new Date(),
       name: this.playerForm.controls[formControlNames.PLAYER_NAME].value,
       mealCost: this.playerForm.controls[formControlNames.MEAL_COST].value
     }));

@@ -1,15 +1,13 @@
 <div id="app-players-table" class="container">
-    <mat-chip-set aria-label="app-player-chips">
-        <div *ngFor="let player of players$ | async">
-            <mat-chip color="primary">
-                {{player.name}} spent £{{player.mealCost}}
-                <button (click)="removePlayer(player)" class="app-remove-player-button">x</button>
-            </mat-chip>
-        </div>
-    </mat-chip-set>
+    <div *ngFor="let player of players$ | async; index as index">
+        <button mat-fab extended [style.background-color]="getRandomColour(index)" (click)="removePlayer(player)">
+            {{player.name}} spent £{{player.mealCost}}
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
 </div>
 
-<div *ngIf="(players$| async) as players" class="container">
+<div id="app-players-table-play-game" *ngIf="(players$| async) as players">
     <button id="app-players-table-play-game" type="button" color="primary" mat-fab extended [disabled]="players.length < 2">
         <mat-icon aria-hidden="false" aria-label="Add icon" fontIcon="credit_card" color="basic" />
         Play Game
