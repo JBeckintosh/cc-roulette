@@ -21,19 +21,6 @@ export class PlayersTableComponent {
    **/
   public players$ = this._playerStore.select(playerSelector);
 
-
-  /**
-   * Colours array
-   */
-  private _colourArray: string[] = [
-    "#CC0000",
-    "#00CC00",
-    "#0000CC",
-    "#CCCC00",
-    "#CC00CC",
-    "#00CCCC"
-  ];
-
   /**
    * Contructs
    */
@@ -45,12 +32,5 @@ export class PlayersTableComponent {
   public removePlayer(player: Player) {
     // Remove a player
     this._playerStore.dispatch(removePlayer(player));
-  }
-
-  /**
-   * Creates a colour randomly
-   */
-  public getRandomColour(index: number): string {
-    return this._colourArray[index % this._colourArray.length];
   }
 }

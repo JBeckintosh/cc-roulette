@@ -10,6 +10,7 @@ import { TwoDecimalPlacesOnlyDirective } from '../../directives/two-decimal-plac
 import { PlayersState } from '../../models/players-state';
 import { addPlayer } from '../../stores/player-store/player.actions';
 import { Store } from '@ngrx/store';
+import { playerSelector } from '../../stores/player-store/player.selector';
 
 @Component({
   selector: 'app-player-form',
@@ -64,11 +65,15 @@ export class PlayerFormComponent {
    * Adds a player
    */
   public addPlayer = (formDirective: FormGroupDirective): void => {
-    console.log(new Date().getTime());
+    let colourIndex = 0;
+    this._playerStore.select(playerSelector).subscribe(players => {
+      colourIndex = players.length % this._colours.length
+    });
 
     // Add a player
     this._playerStore.dispatch(addPlayer({
       id: new Date(),
+      backgroundColour: this._colours[colourIndex],
       name: this.playerForm.controls[formControlNames.PLAYER_NAME].value,
       mealCost: this.playerForm.controls[formControlNames.MEAL_COST].value
     }));
@@ -85,4 +90,16 @@ export class PlayerFormComponent {
       mealCost: new FormControl(null, [Validators.required, Validators.min(0.01)])
     });
   }
+
+  /**
+   * Colours array
+   */
+  private _colours: string[] = [
+    "#CC0000",
+    "#00CC00",
+    "#0000CC",
+    "#CCCC00",
+    "#CC00CC",
+    "#00CCCC"
+  ];
 }

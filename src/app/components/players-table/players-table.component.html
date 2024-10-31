@@ -1,6 +1,6 @@
 <div id="app-players-table" class="container">
     <div *ngFor="let player of players$ | async; index as index">
-        <button mat-fab extended [style.background-color]="getRandomColour(index)" (click)="removePlayer(player)">
+        <button mat-fab extended [style.background-color]="player.backgroundColour" (click)="removePlayer(player)">
             {{player.name}} spent £{{player.mealCost}}
             <mat-icon>close</mat-icon>
         </button>
